@@ -84,7 +84,7 @@ function HomeContent() {
             </Link>
           </div>
 
-          <h2 className="text-4xl text-primary font-bold mb-2">
+          <h2 className="text-4xl font-script text-primary font-bold mb-2">
             {event.bride} & {event.groom}
           </h2>
           <p className="text-gray-600 mb-8">

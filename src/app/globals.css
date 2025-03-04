@@ -124,3 +124,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+.font-script {
+  font-family: var(--font-dancing-script);
+}

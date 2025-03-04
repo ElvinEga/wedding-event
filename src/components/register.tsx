@@ -23,12 +23,20 @@ export default function RegisterGuest({ eventId }: RegisterGuestProps) {
   const [error, setError] = useState<string | null>(null);
   const [registered, setRegistered] = useState(false);
   const [selectedTable, setSelectedTable] = useState<string | null>(null);
+  const isValidPhoneNumber = (number: string) => {
+    return /^\+?[0-9]\d{8,14}$/.test(number);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!name.trim() || !phoneNumber.trim() || memberCount < 1) {
       setError("Please fill in all fields correctly");
+      return;
+    }
+
+    if (!isValidPhoneNumber(phoneNumber)) {
+      setError("Invalid phone number format");
       return;
     }
 
