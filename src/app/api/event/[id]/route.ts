@@ -15,7 +15,7 @@ export async function GET(
   const event = { ...wedEvents[eventId as keyof typeof wedEvents] };
 
   event.tables = event.tables.map((table) => {
-    const { families, ...rest } = table;
+    const { ...rest } = table;
     return rest;
   });
 

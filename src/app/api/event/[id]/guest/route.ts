@@ -47,13 +47,13 @@ export async function POST(
       checked_at: new Date().toISOString(),
     };
 
-    table.families.push(newFamily);
+    table.families?.push(newFamily);
 
     table.seat_assigned += member_count;
     table.seat_availabe = Math.max(0, table.seat_availabe - member_count);
 
     const updatedTables = event.tables.map((t) => {
-      const { families, ...rest } = t;
+      const { ...rest } = t;
       return rest;
     });
 

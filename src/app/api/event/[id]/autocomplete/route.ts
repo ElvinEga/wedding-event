@@ -23,7 +23,7 @@ export async function GET(
   const allFamilyNames = new Set<string>();
 
   event.tables.forEach((table) => {
-    table.families.forEach((family) => {
+    table.families?.forEach((family) => {
       allFamilyNames.add(family.name);
     });
   });

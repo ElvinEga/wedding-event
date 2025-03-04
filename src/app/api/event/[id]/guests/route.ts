@@ -1,6 +1,11 @@
 import { wedEvents } from "@/store/wedEvents";
 import { type NextRequest, NextResponse } from "next/server";
 
+interface SearchResult {
+  table_no: string;
+  name: string;
+  member_count: number;
+}
 export async function GET(
   request: NextRequest,
   { params }: { params: { id: string } }
@@ -21,10 +26,10 @@ export async function GET(
   }
 
   const event = wedEvents[eventId as keyof typeof wedEvents];
-  const results: any[] = [];
+  const results: SearchResult[] = [];
 
   event.tables.forEach((table) => {
-    table.families.forEach((family) => {
+    table.families?.forEach((family) => {
       const nameWords = family.name.toLowerCase().split(/\s+/);
       const queryLower = query.toLowerCase();
 
