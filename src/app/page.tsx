@@ -78,9 +78,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Right Side - Sign In Form */}
       <div className="flex-1 flex items-center justify-center p-8">
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-xl">
           <div className="lg:hidden mb-8">
             <Link href="/" className="flex items-center gap-2">
               <span className="text-2xl">🦥</span>
