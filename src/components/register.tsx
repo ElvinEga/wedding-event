@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Loader2 } from "lucide-react";
 import type { Table } from "@/lib/types";
+import TableSelection from "./table";
 
 interface RegisterGuestProps {
   eventId: string;
@@ -118,7 +119,14 @@ export default function RegisterGuest({ eventId }: RegisterGuestProps) {
   }
 
   if (availableTables.length > 0) {
-    return <div>Table</div>;
+    return (
+      <TableSelection
+        tables={availableTables}
+        onSelectTable={handleTableSelect}
+        loading={loading}
+        eventId={eventId}
+      />
+    );
   }
 
   return (

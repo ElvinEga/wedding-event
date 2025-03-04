@@ -75,7 +75,7 @@ export default function SearchGuest({ eventId }: SearchGuestProps) {
             ) : (
               <Search className="h-4 w-4" />
             )}
-            <span className="ml-2">Search</span>
+            <span>Search</span>
           </Button>
         </div>
       </form>
