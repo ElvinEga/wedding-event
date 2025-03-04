@@ -101,7 +101,9 @@ export default function RegisterGuest({ eventId }: RegisterGuestProps) {
           <div className="flex justify-center mb-4">
             <PartyPopperIcon size={48} className="text-primary" />
           </div>
-          <h3 className="mb-2 text-xl font-bold">Welcome, {name}!</h3>
+          <h3 className="mb-2 text-xl text-primary font-bold">
+            Welcome, {name}!
+          </h3>
           <p className="mb-4">We are so happy you could join us today!</p>
           <div className="bg-secondary p-4 rounded-lg mb-4">
             <p className="text-gray-700">You are seated at:</p>
