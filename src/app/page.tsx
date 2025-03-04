@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { Event } from "@/lib/types";
+import SearchGuest from "@/components/search";
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -101,37 +102,9 @@ export default function Home() {
             })}
           </p>
 
-          <form className="space-y-6">
-            <div className="space-y-2">
-              <h2 className="text-xl font-semibold">Find Your Table</h2>
-              <p className="text-sm text-muted-foreground">
-                Enter your name to find your assigned table
-              </p>
-            </div>
-            <div className="flex space-x-2">
-              <Input
-                type="text"
-                placeholder="Enter your name"
-                className="flex-1"
-              />
-              <Button type="submit">
-                <Search className="h-4 w-4" />
-                <span>Search</span>
-              </Button>
-            </div>
-
-            <div className="text-center">
-              <span className="text-gray-600 text-sm">
-                Not in the list?{" "}
-                <Link
-                  href="/register"
-                  className="text-violet-600 hover:text-violet-700"
-                >
-                  Register
-                </Link>
-              </span>
-            </div>
-          </form>
+          <div className="space-y-6">
+            <SearchGuest eventId={eventId} />
+          </div>
         </div>
       </div>
     </div>
