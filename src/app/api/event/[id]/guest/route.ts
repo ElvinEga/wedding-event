@@ -1,12 +1,8 @@
 import { wedEvents } from "@/store/wedEvents";
 import { type NextRequest, NextResponse } from "next/server";
 
-export async function POST(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
-  const eventId = params.id;
-
+export async function POST(request: NextRequest) {
+  const eventId = request.nextUrl.pathname.split("/").at(-2);
   if (!wedEvents[eventId as keyof typeof wedEvents]) {
     return NextResponse.json({ error: "Event not found" }, { status: 404 });
   }

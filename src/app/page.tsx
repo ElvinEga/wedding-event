@@ -1,13 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
-import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { Event } from "@/lib/types";
 import SearchGuest from "@/components/search";
 
-export default function Home() {
+function HomeContent() {
   const searchParams = useSearchParams();
   const eventId = searchParams.get("eventId") || "sarah-wedding";
 
@@ -103,5 +102,19 @@ export default function Home() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense
+      fallback={
+        <div>
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        </div>
+      }
+    >
+      <HomeContent />
+    </Suspense>
   );
 }

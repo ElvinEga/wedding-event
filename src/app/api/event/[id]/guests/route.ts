@@ -6,11 +6,8 @@ interface SearchResult {
   name: string;
   member_count: number;
 }
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
-  const eventId = params.id;
+export async function GET(request: NextRequest) {
+  const eventId = request.nextUrl.pathname.split("/").at(-2);
   const searchParams = request.nextUrl.searchParams;
   const query = searchParams.get("q");
 

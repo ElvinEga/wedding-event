@@ -1,11 +1,8 @@
 import { wedEvents } from "@/store/wedEvents";
 import { type NextRequest, NextResponse } from "next/server";
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
-  const eventId = params.id;
+export async function GET(request: NextRequest) {
+  const eventId = request.nextUrl.pathname.split("/").at(-2); // Extracts `[id]` from the URL
   const searchParams = request.nextUrl.searchParams;
   const query = searchParams.get("q");
 

@@ -1,12 +1,8 @@
 import { wedEvents } from "@/store/wedEvents";
 import { type NextRequest, NextResponse } from "next/server";
 
-export async function GET(
-  request: NextRequest,
-  context: { params: { id: string } }
-) {
-  const { params } = context;
-  const eventId = params.id;
+export async function GET(request: NextRequest) {
+  const eventId = request.nextUrl.pathname.split("/").at(-1);
 
   if (!wedEvents[eventId as keyof typeof wedEvents]) {
     return NextResponse.json({ error: "Event not found" }, { status: 404 });
