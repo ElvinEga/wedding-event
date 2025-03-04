@@ -1,3 +1,4 @@
+import { wedEvents } from "@/store/wedEvents";
 import { type NextRequest, NextResponse } from "next/server";
 
 export async function GET(
