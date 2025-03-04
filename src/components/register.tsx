@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Loader2 } from "lucide-react";
+import { Loader2, PartyPopperIcon } from "lucide-react";
 import type { Table } from "@/lib/types";
 import TableSelection from "./table";
 
@@ -98,13 +98,17 @@ export default function RegisterGuest({ eventId }: RegisterGuestProps) {
     return (
       <div className="space-y-6">
         <div className="rounded-lg border p-6 text-center">
+          <div className="flex justify-center mb-4">
+            <PartyPopperIcon size={48} className="text-primary" />
+          </div>
           <h3 className="mb-2 text-xl font-bold">Welcome, {name}!</h3>
-          <p className="mb-4">
-            You have been assigned to{" "}
-            <span className="font-bold text-primary">
+          <p className="mb-4">We are so happy you could join us today!</p>
+          <div className="bg-secondary p-4 rounded-lg mb-4">
+            <p className="text-gray-700">You are seated at:</p>
+            <p className="text-3xl font-bold text-primary">
               Table {selectedTable}
-            </span>
-          </p>
+            </p>
+          </div>
           <p className="text-sm text-muted-foreground">
             {memberCount} seat{memberCount !== 1 ? "s" : ""} have been reserved
             for you

@@ -107,8 +107,8 @@ export default function HallLayout({
   }
 
   return (
-    <Card>
-      <CardContent className="p-4">
+    <Card className="py-2 px-2">
+      <div>
         <div className="text-center">
           <h3 className="mb-2 font-medium">Hall Layout</h3>
           {selectedTable && (
@@ -121,7 +121,7 @@ export default function HallLayout({
         <div className="relative w-full">
           <canvas ref={canvasRef} className="w-full rounded-md border" />
         </div>
-      </CardContent>
+      </div>
     </Card>
   );
 }

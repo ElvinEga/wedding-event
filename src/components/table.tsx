@@ -39,12 +39,6 @@ export default function TableSelection({
         </p>
       </div>
 
-      <HallLayout
-        eventId={eventId}
-        selectedTable={highlightedTable}
-        interactive={true}
-      />
-
       <div className="grid gap-3 sm:grid-cols-2">
         {tables.map((table) => (
           <Card
@@ -64,6 +58,12 @@ export default function TableSelection({
           </Card>
         ))}
       </div>
+
+      <HallLayout
+        eventId={eventId}
+        selectedTable={highlightedTable}
+        interactive={true}
+      />
 
       <Button
         onClick={() => window.location.reload()}

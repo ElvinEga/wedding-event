@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Guest } from "@/lib/types";
 import HallLayout from "./hall";
+import { PartyPopperIcon } from "lucide-react";
 
 interface GuestResultsProps {
   guests: Guest[];
@@ -27,7 +28,10 @@ export default function GuestResults({ guests, eventId }: GuestResultsProps) {
       <div className="space-y-6">
         <Card>
           <CardHeader>
-            <CardTitle className="text-center">
+            <div className="flex justify-center mb-4">
+              <PartyPopperIcon size={48} className="text-primary" />
+            </div>
+            <CardTitle className="text-center text-primary">
               Welcome, {selectedGuest.name}!
             </CardTitle>
           </CardHeader>
