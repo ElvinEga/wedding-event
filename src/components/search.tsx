@@ -10,6 +10,7 @@ import type { Guest } from "@/lib/types";
 import RegisterGuest from "./register";
 import GuestResults from "./guest";
 import { useRef } from "react";
+import { useEffect } from "react";
 
 interface SearchGuestProps {
   eventId: string;
@@ -25,6 +26,55 @@ export default function SearchGuest({ eventId }: SearchGuestProps) {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const suggestionsRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const fetchSuggestions = async () => {
+      if (searchTerm.length < 2) {
+        setSuggestions([]);
+        return;
+      }
+
+      try {
+        const response = await fetch(
+          `/api/event/${eventId}/autocomplete?q=${encodeURIComponent(
+            searchTerm
+          )}`
+        );
+
+        if (response.ok) {
+          const data = await response.json();
+          setSuggestions(data);
+          setShowSuggestions(data.length > 0);
+        }
+      } catch (error) {
+        console.error("Error fetching suggestions:", error);
+      }
+    };
+
+    const debounceTimer = setTimeout(() => {
+      fetchSuggestions();
+    }, 300);
+
+    return () => clearTimeout(debounceTimer);
+  }, [searchTerm, eventId]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        suggestionsRef.current &&
+        !suggestionsRef.current.contains(event.target as Node) &&
+        inputRef.current &&
+        !inputRef.current.contains(event.target as Node)
+      ) {
+        setShowSuggestions(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -60,7 +110,6 @@ export default function SearchGuest({ eventId }: SearchGuestProps) {
   const handleSuggestionClick = (suggestion: string) => {
     setSearchTerm(suggestion);
     setShowSuggestions(false);
-    // Focus the input after selection
     if (inputRef.current) {
       inputRef.current.focus();
     }
