@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Loader2, Search } from "lucide-react";
 import type { Guest } from "@/lib/types";
+import RegisterGuest from "./register";
 
 interface SearchGuestProps {
   eventId: string;
@@ -94,7 +95,7 @@ export default function SearchGuest({ eventId }: SearchGuestProps) {
         </>
       )}
 
-      <div>Register</div>
+      <RegisterGuest eventId={eventId} />
     </div>
   );
 }
