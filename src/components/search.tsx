@@ -80,7 +80,7 @@ export default function SearchGuest({ eventId }: SearchGuestProps) {
         </div>
       </form>
 
-      {searched && !loading && (
+      {searched && !loading && !showRegister && (
         <>
           {guests.length > 0 ? (
             <div>Guest Search</div>
