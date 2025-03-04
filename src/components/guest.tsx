@@ -62,15 +62,15 @@ export default function GuestResults({ guests, eventId }: GuestResultsProps) {
           <Button
             key={index}
             variant="outline"
-            className="w-full justify-start text-left"
+            className="w-full p-6 text-base justify-start text-left"
             onClick={() => handleSelectGuest(guest)}
           >
             <div>
-              <div className="font-medium">{guest.name}</div>
-              <div className="text-sm text-muted-foreground">
-                Table {guest.table_no} • {guest.member_count} guest
-                {guest.member_count !== 1 ? "s" : ""}
-              </div>
+              <span className="font-medium">{guest.name} </span>
+              <span className="text-muted-foreground">
+                (Table {guest.table_no} • {guest.member_count} guest
+                {guest.member_count !== 1 ? "s" : ""})
+              </span>
             </div>
           </Button>
         ))}
