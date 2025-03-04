@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Loader2, Search } from "lucide-react";
 import type { Guest } from "@/lib/types";
 import RegisterGuest from "./register";
+import GuestResults from "./guest";
 
 interface SearchGuestProps {
   eventId: string;
@@ -83,7 +84,7 @@ export default function SearchGuest({ eventId }: SearchGuestProps) {
       {searched && !loading && !showRegister && (
         <>
           {guests.length > 0 ? (
-            <div>Guest Search</div>
+            <GuestResults guests={guests} eventId={eventId} />
           ) : (
             <div className="rounded-lg border p-4 text-center">
               <p className="mb-4">No guests found with that name.</p>
