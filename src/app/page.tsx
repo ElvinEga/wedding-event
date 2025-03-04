@@ -1,9 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { Loader2, Search } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import Link from "next/link";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { Event } from "@/lib/types";
@@ -63,10 +61,8 @@ export default function Home() {
       <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-b from-[#F7B24D] to-[#ED266F] p-12 flex-col justify-between">
         <div>
           <Link href="/" className="flex items-center gap-2 text-white">
-            <span className="text-2xl">🦥</span>
-            <h1 className="text-5xl  font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#F7B24D] to-[#ED266F]">
-              GatherGram
-            </h1>
+            <span className="text-3xl">👰🤵</span>
+            <h1 className="text-5xl  font-bold  text-primary">GatherGram</h1>
           </Link>
         </div>
         <div className="text-white">
@@ -82,7 +78,7 @@ export default function Home() {
         <div className="w-full max-w-xl">
           <div className="lg:hidden mb-8">
             <Link href="/" className="flex items-center gap-2">
-              <span className="text-2xl">🦥</span>
+              <span className="text-2xl">👰🤵</span>
               <span className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#F7B24D] to-[#ED266F]">
                 GatherGram
               </span>
