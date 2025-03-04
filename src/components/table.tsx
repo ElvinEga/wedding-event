@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Loader2 } from "lucide-react";
 import type { Table } from "@/lib/types";
 import HallLayout from "./hall";
@@ -49,25 +49,18 @@ export default function TableSelection({
         {tables.map((table) => (
           <Card
             key={table.table_no}
-            className="cursor-pointer transition-colors hover:bg-accent"
+            className="cursor-pointer transition-colors hover:bg-accent text-center"
             onMouseEnter={() => handleTableHover(table.table_no)}
             onMouseLeave={handleTableLeave}
             onClick={() => onSelectTable(table.table_no)}
           >
-            <CardHeader className="p-4">
-              <CardTitle className="text-lg">Table {table.table_no}</CardTitle>
-            </CardHeader>
-            <CardContent className="p-4 pt-0">
-              <p className="text-sm">
-                <span className="font-medium text-primary">
-                  {table.seat_availabe}
-                </span>{" "}
-                seats available
-              </p>
-              <p className="text-xs text-muted-foreground">
-                {table.seat_assigned} seats already assigned
-              </p>
-            </CardContent>
+            <div>
+              <div className=" font-medium text-lg">Table {table.table_no}</div>
+              <div className="text-sm text-gray-600">
+                {table.seat_availabe}{" "}
+                {table.seat_availabe === 1 ? "seat" : "seats"} available
+              </div>
+            </div>
           </Card>
         ))}
       </div>
