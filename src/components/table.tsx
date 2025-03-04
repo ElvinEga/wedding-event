@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Loader2 } from "lucide-react";
 import type { Table } from "@/lib/types";
+import HallLayout from "./hall";
 
 interface TableSelectionProps {
   tables: Table[];
@@ -38,7 +39,11 @@ export default function TableSelection({
         </p>
       </div>
 
-      <div>Hall</div>
+      <HallLayout
+        eventId={eventId}
+        selectedTable={highlightedTable}
+        interactive={true}
+      />
 
       <div className="grid gap-3 sm:grid-cols-2">
         {tables.map((table) => (
