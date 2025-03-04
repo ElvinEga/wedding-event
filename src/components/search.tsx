@@ -94,8 +94,7 @@ export default function SearchGuest({ eventId }: SearchGuestProps) {
           )}
         </>
       )}
-
-      <RegisterGuest eventId={eventId} />
+      {showRegister && <RegisterGuest eventId={eventId} />}
     </div>
   );
 }
