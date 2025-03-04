@@ -1,4 +1,32 @@
-export const wedEvents = {
+interface Family {
+  table_id: number;
+  name: string;
+  member_count: number;
+  phone_number: string;
+  checked_at: string | null;
+}
+
+interface Table {
+  table_no: string;
+  seat_availabe: number;
+  seat_assigned: number;
+  position_x: number;
+  position_y: number;
+  families?: Family[];
+}
+
+interface WeddingEvent {
+  bride: string;
+  groom: string;
+  wedding_date: string;
+  hall_layout_image: string;
+  tables: Table[];
+}
+
+interface WedEvents {
+  [key: string]: WeddingEvent;
+}
+export const wedEvents: WedEvents = {
   "sarah-wedding": {
     bride: "Sarah",
     groom: "Michael",
