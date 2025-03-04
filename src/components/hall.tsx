@@ -110,13 +110,15 @@ export default function HallLayout({
     <Card className="py-2 px-2">
       <div>
         <div className="text-center">
-          <h3 className="mb-2 font-medium">Hall Layout</h3>
-          {selectedTable && (
-            <p className="mb-4 text-sm">
-              Your table is{" "}
-              <span className="font-bold text-primary">#{selectedTable}</span>
-            </p>
-          )}
+          <h3 className="mb-2 font-medium">
+            Hall{" "}
+            {selectedTable && (
+              <span className="mb-4 text-sm">
+                Your table is{" "}
+                <span className="font-bold text-primary">#{selectedTable}</span>
+              </span>
+            )}
+          </h3>
         </div>
         <div className="relative w-full">
           <canvas ref={canvasRef} className="w-full rounded-md border" />

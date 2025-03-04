@@ -31,14 +31,14 @@ export const wedEvents: WedEvents = {
     bride: "Sarah",
     groom: "Michael",
     wedding_date: "2025-06-15T18:00:00Z",
-    hall_layout_image: "",
+    hall_layout_image: "/assets/hall.jpg",
     tables: [
       {
         table_no: "1",
         seat_availabe: 2,
         seat_assigned: 8,
         position_x: 0.2,
-        position_y: 0.3,
+        position_y: 0.2,
         families: [
           {
             table_id: 1,
@@ -115,7 +115,7 @@ export const wedEvents: WedEvents = {
         table_no: "5",
         seat_availabe: 10,
         seat_assigned: 0,
-        position_x: 0.5,
+        position_x: 0.4,
         position_y: 0.7,
         families: [],
       },
@@ -123,7 +123,7 @@ export const wedEvents: WedEvents = {
         table_no: "6",
         seat_availabe: 0,
         seat_assigned: 10,
-        position_x: 0.8,
+        position_x: 0.7,
         position_y: 0.7,
         families: [
           {
@@ -136,6 +136,29 @@ export const wedEvents: WedEvents = {
           {
             table_id: 6,
             name: "Moore",
+            member_count: 4,
+            phone_number: "555-789-0123",
+            checked_at: "2025-06-15T18:50:00Z",
+          },
+        ],
+      },
+      {
+        table_no: "7",
+        seat_availabe: 5,
+        seat_assigned: 10,
+        position_x: 0.8,
+        position_y: 0.8,
+        families: [
+          {
+            table_id: 7,
+            name: "Jck",
+            member_count: 6,
+            phone_number: "555-678-9012",
+            checked_at: "2025-06-15T18:45:00Z",
+          },
+          {
+            table_id: 7,
+            name: "Mole",
             member_count: 4,
             phone_number: "555-789-0123",
             checked_at: "2025-06-15T18:50:00Z",
